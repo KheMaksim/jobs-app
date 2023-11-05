@@ -24,6 +24,11 @@ li {
     list-style-type: none;
 }
 
+button {
+    background: none;
+    border: none;
+}
+
 input {
     background: none;
     border: none;
@@ -65,6 +70,11 @@ input:focus-visible {
     padding-bottom: 10px;
 }
 
+.form__input-container {
+    width: 100%;
+    position: relative;
+}
+
 .form__button {
     width: 100%;
     min-height: 56px;
@@ -74,6 +84,12 @@ input:focus-visible {
     margin-bottom: 30px;
     border-radius: 12px;
     cursor: pointer;
+}
+
+.form__button--input {
+    position: absolute;
+    top: 0;
+    right: 0;
 }
 
 .redirect {

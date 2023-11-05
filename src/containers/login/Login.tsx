@@ -2,17 +2,20 @@ import { Link, useNavigate } from "react-router-dom";
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useAppDispatch } from "@/hooks/hooks";
 import { loginUser } from "@/features/user/UserActions";
+import eye from "@/assets/eye.svg";
 import "./Login.css";
 
 interface LoginState {
     username: string;
     password: string;
+    hidePassword: boolean;
 }
 
 const Login = () => {
     const [state, setState] = useState<LoginState>({
         username: "",
         password: "",
+        hidePassword: true,
     });
 
     const dispatch = useAppDispatch();
@@ -21,6 +24,13 @@ const Login = () => {
     const inputChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setState((prevState) => ({ ...prevState, [name]: value }));
+    };
+
+    const togglePasswordVisibility = () => {
+        setState((prevState) => ({
+            ...prevState,
+            hidePassword: !prevState.hidePassword,
+        }));
     };
 
     const submitFormHandler = (e: FormEvent<HTMLFormElement>) => {
@@ -48,14 +58,23 @@ const Login = () => {
                         onChange={inputChangeHandler}
                         name="username"
                     />
-                    <input
-                        type="text"
-                        className="form__input"
-                        placeholder="Пароль"
-                        value={state.password}
-                        onChange={inputChangeHandler}
-                        name="password"
-                    />
+                    <div className="form__input-container">
+                        <input
+                            type={state.hidePassword ? "password" : "text"}
+                            className="form__input"
+                            placeholder="Пароль"
+                            value={state.password}
+                            onChange={inputChangeHandler}
+                            name="password"
+                        />
+                        <button
+                            className="form__button--input"
+                            type="button"
+                            onClick={togglePasswordVisibility}
+                        >
+                            <img className="form__icon" src={eye} alt="eye" />
+                        </button>
+                    </div>
                     <button className="form__button">Войти</button>
                 </form>
 
