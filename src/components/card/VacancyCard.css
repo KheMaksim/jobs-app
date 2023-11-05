@@ -1,0 +1,38 @@
+.vacancy {
+    width: 100%;
+    border-radius: 12px;
+    background: #191919;
+    display: flex;
+    justify-content: space-between;
+    padding: 40px;
+    margin-bottom: 16px;
+}
+
+.vacancy__logo {
+    display: flex;
+    width: 15%;
+}
+
+.vacancy__image {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    margin-right: 12px;
+    object-fit: contain;
+}
+
+.vacancy__info {
+    width: 75%;
+    flex-direction: column;
+}
+
+.vacancy__title {
+    font-size: 27px;
+    margin-bottom: 20px;
+}
+
+.vacancy__subtitle {
+    max-width: 662px;
+    font-size: 17px;
+    color: #acacac;
+}
